@@ -7,16 +7,16 @@
 
             <div class="panel-heading">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="panel-title">Change Password</h3>
+                <h3 class="panel-title">تغيير كلمة السر</h3>
             </div>
 
-            <div class="panel-body">
+            <div class="panel-body" dir="rtl">
                 <form ng-submit="changePassword(user)">
-                    <input type="email" ng-model="user.email" placeholder="Email" class="form-control" required><br>
-                    <input type="password" ng-model="user.oldPss" placeholder="Old Password" class="form-control" required><br>
-                    <input type="password" ng-model="user.newPass" placeholder="New Password" class="form-control" required><br>
+                    <input type="email" ng-model="user.email" placeholder="الإيميل" class="form-control" required><br>
+                    <input type="password" ng-model="user.oldPss" placeholder="الرقم السري القديم" class="form-control" required><br>
+                    <input type="password" ng-model="user.newPass" placeholder="الرقم السري الجديد" class="form-control" required><br>
 
-                    <input type="submit" value="Update" class="btn btn-info">
+                    <input type="submit" value="تـحـديـث" class="btn btn-info">
                 </form>
             </div>
          </div>

@@ -1,25 +1,34 @@
-<div class="modal fade" id="ediModal">
+<div class="modal fade" id="ediModal" ng-controller="TaskController">
     <div class="modal-dialog">
         <div class="modal-content">
 
-
-            <div class="panel panel-warning title">
+            <div class="panel panel-info title">
 
                 <div class="panel-heading title">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h3 class="panel-title">Edit Task</h3>
                 </div>
 
-                <div class="panel-body">
+                <div class="panel-body" dir="rtl">
                     <form ng-submit="editTask(selectedTask)">
-                        <input type="text" ng-model="selectedTask.title" class="form-control" placeholder="Task title" required><br>
-                        <textarea ng-model="selectedTask.description" row="3" class="form-control" placeholder="Describe what you need done" required></textarea><br>
-                        <input type="number" ng-model="selectedTask.total" class="form-control" placeholder="How much you pay" required><br>
-                        <input type="submit" value="Update" class="btn btn-info">
+                        <input type="text" ng-model="selectedTask.title" class="form-control " placeholder=" مـعـلـم / مـعـلـمـة + المـسـمـى الـوظـيـفـي" required><br>
+                        <input type="text" ng-model="selectedTask.school" class="form-control " placeholder="الـمـدرســة" required><br>
+                        <input type="text" ng-model="selectedTask.grade" class="form-control " placeholder="الـمـرحـلـة" required><br>
+
+                        <input type="text" ng-model="selectedTask.governorate" class="form-control " placeholder="المـحـافـظـة / المـنـطـقـة" required><br>
+
+                        <input type="text" ng-model="selectedTask.wilayat" class="form-control " placeholder="الــولايـــة"required><br>
+                        <input type="text" ng-model="selectedTask.residential" class="form-control " placeholder="مـنـطـقـة سـكـنـيـة"required><br>
+                        <textarea ng-model="selectedTask.description" class="form-control " placeholder="إلى أين ترغب بالتبادل"></textarea><br>
+
+                        <input type="submit" value="تـحـديـث" class="btn btn-warning">
                     </form>
                 </div>
-            </div>
-        </div>
 
+            </div>
+
+
+
+        </div>
     </div>
 </div>

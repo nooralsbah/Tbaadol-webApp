@@ -2,42 +2,55 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button  type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only" >Toggle navigation</span>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#/">Nooralsbah</a>
+            <a class="navbar-brand" dir="rtl" href="#/">تـبــــادل</a>
         </div>
 
+        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
             <ul class="nav navbar-nav navbar-right">
-                <li ng-show="signedIn()"><a href="" data-toggle="modal" data-target="#posModal">Post a Task</a></li>
-                <li><a href="#/browse">Browse Task</a></li>
+                <li ng-show="signedIn()"><a href="" data-toggle="modal" data-target="#posModal">إضافة طلب تبادل</a></li>
+                <li><a href="#/browse">تصفح المعروض</a></li>
+                <li>
+                    <a href="mailto:tabaadol@gmail.com" target="_top">تـواصـل مـعـنـا</a>
+                </li>
             </ul>
+
+
             <ul class="nav navbar-nav navbar-left">
-                <li ng-hide="signedIn()"><a href="#/login">Login</a></li>
-                <li ng-hide="signedIn()"><a href="#/register">Register</a></li>
+                <li ng-hide="signedIn()"><a href="#/login">دخـول</a></li>
+                <li ng-hide="signedIn()"><a href="#/register">التسجيل</a></li>
 
                 <li ng-show="signedIn()" class="dropdown">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                        <img ng-src="{{currentUser.profile.gravatar}}" class="img-circle gravatar">
+                        <img ng-src="{{currentUser.profile.gravatar}}" class="img-circle-nav gravatar">
                         &nbsp;
                         {{currentUser.profile.name}}
-                        <span class="mdi-navigation-expand-more"></span></a>
+                        <span class="mdi-navigation-expand-more" dir="rtl" ></span></a>
+                    </a>
                     <ul class="dropdown-menu">
+                        <li><a href="#/dashboard">
+                            <i class="mdi-action-assessment"></i>  صـفـحـتـي</a></li>
                         <li><a href="" data-toggle="modal" data-target="#pasModal">
-                            <i class="mdi-action-lock"></i>Change Password</a></li>
+                            <i class="mdi-action-lock"></i> تغيير كلمة السر</a></li>
                         <li><a href="" ng-click="logout()">
-                            <i class="mdi-action-exit-to-app"></i>Logout</a></li>
+                            <i class="mdi-action-exit-to-app"></i> الخروج</a></li>
                     </ul>
                 </li>
             </ul>
 
-        </div>
-    </div>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+
     <div ng-show="signedIn()" ng-include="'views/partials/changepass.html'"></div>
     <div ng-show="signedIn()" ng-include="'views/partials/post.html'"></div>
+
+
 </nav>
+

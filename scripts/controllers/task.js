@@ -1,32 +1,36 @@
-/**
- * Created by nooralsbah on 6/4/15.
- */
 'use strict';
 
-app.controller('TaskController', function($scope, FURL, $firebase, $location, $routeParams, toaster) {
+app.controller('TaskController', function($scope, $location, toaster, Task, Auth) {
 
-    var ref = new Firebase(FURL);
-    var fbTasks = $firebase(ref.child('tasks')).$asArray();
-    var taskId = $routeParams.taskId;
+    $scope.createTask = function() {
+        $scope.task.status = 'open';
+        $scope.task.gravatar = Auth.user.profile.gravatar;
+        $scope.task.name = Auth.user.profile.name;
+        $scope.task.poster = Auth.user.uid;
 
-    if(taskId) {
-        $scope.selectedTask = getTask(taskId);
-    }
+        Task.createTask($scope.task).then(function(ref) {
+            toaster.pop('success', 'تم اضافة طلب التبادل بنجاح');
+            $scope.task = {
+                title: '',
+                school: '',
+                grade: '',
+                governorate: '',
+                wilayat: '',
+                residential: '',
+                description: '',
+                status: 'open',
+                gravatar: '',
+                name: '',
+                poster: ''
+            };
+            $location.path('/browse/' + ref.key());
+        });
+    };
 
-    function getTask(taskId) {
-        return $firebase(ref.child('tasks').child(taskId)).$asObject();
-    }
-    $scope.updateTask = function(task) {
-        $scope.selectedTask.$save(task);
-        toaster.pop('success', "Task is updated");
-        $location.path('/browse');
-    }
+    $scope.editTask = function(task) {
+        Task.editTask(task).then(function() {
+            toaster.pop('success', "تـم تـحـديـث الـطـلـب");
+        });
+    };
 
-    $scope.tasks = fbTasks;
-
-    $scope.postTask = function(task) {
-        fbTasks.$add(task);
-        toaster.pop('success', "Task is updated");
-        $location.path('/browse');
-    }
 });

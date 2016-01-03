@@ -1,26 +1,28 @@
 <div class="auth-forms title">
-    <h2>Register</h2>
+    <h2>تـسـجـيـل</h2>
     <form ng-submit="register(user)">
-     <div class="input-group">
-         <div class="input-group-addon">
-        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-    </div>
-        <input type="name" ng-modle="user.name" placeholder="Name" class="form-control" required>
+
+        <div class="input-group">
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            </div>
+            <input type="name" ng-model="user.name" placeholder="الإسـم" class="form-control" required>
         </div><br>
 
         <div class="input-group">
             <div class="input-group-addon">
-              <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
             </div>
-            <input type="email" ng-modle="user.email" placeholder="Email" class="form-control" required>
+            <input type="email" ng-model="user.email" placeholder="الإيـمـيـل" class="form-control" required>
         </div><br>
 
         <div class="input-group">
             <div class="input-group-addon">
                 <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
             </div>
-            <input type="password" ng-modle="user.password" placeholder="Password" class="form-control" required>
+            <input type="password" ng-model="user.password" placeholder="الرقم السري" class="form-control" required>
         </div><br>
-        <input type="submit" value="Register" class="btn btn-danger">
+
+        <input type="submit" value="تـسـجـيـل" class="btn btn-danger">
     </form>
 </div>
